@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A typographic topography conducted by pointer velocity and position.">
     <title>Contour Chorus</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('always-cooking-theme');
+          document.documentElement.dataset.theme = savedTheme === 'arcade' ? 'arcade' : 'archive';
+        } catch {
+          document.documentElement.dataset.theme = 'archive';
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="../experiment.css">
   </head>
   <body>
     <header class="project-title-bar">
-      <a href="../../" class="back-link">Back to Experiments</a>
+      <a href="../../?v=20260721" class="back-link">Back to Experiments</a>
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Use Arcade theme" data-theme-toggle>
+        <span>Archive</span>
+        <span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+        <span>Arcade</span>
+      </button>
       <div class="project-title-row">
         <h1>Contour Chorus</h1>
         <time class="project-date" datetime="2026-07-14">July 14, 2026</time>
@@ -29,6 +44,7 @@
         </section>
       </div>
     </main>
+    <script type="module" src="../../src/theme.js"></script>
     <script type="module" src="./contour-chorus.js"></script>
   </body>
 </html>

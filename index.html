@@ -5,23 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Studio Archive — a catalogued record of daily creative experiments."
+      content="Always Cooking — a catalogued record of daily creative experiments."
     >
-    <title>Studio Archive</title>
+    <title>Always Cooking</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('always-cooking-theme');
+          document.documentElement.dataset.theme = savedTheme === 'arcade' ? 'arcade' : 'archive';
+        } catch {
+          document.documentElement.dataset.theme = 'archive';
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Studio Archive home">
+      <a class="brand" href="/" aria-label="Always Cooking home">
         <span class="brand-mark">MK</span>
-        <span class="brand-type">Studio<br>Archive</span>
       </a>
-      <p class="header-note">Est. 2026 &middot; Ongoing Accession</p>
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Use Arcade theme" data-theme-toggle>
+        <span>Archive</span>
+        <span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+        <span>Arcade</span>
+      </button>
     </header>
 
     <main>
       <section class="intro" aria-labelledby="pageTitle">
-        <h1 id="pageTitle">The Studio<br>Archive</h1>
+        <h1 id="pageTitle">Always<br>Cooking</h1>
       </section>
 
       <section class="toolbar" aria-label="Gallery controls">
@@ -51,7 +64,7 @@
       </section>
 
       <section class="gallery" id="gallery" aria-label="Archive folios">
-        <a class="folio" href="./experiments/lenticular-index/" style="--accent: #d8ff36" data-preview="lenticular" aria-label="Open dossier: Lenticular Index">
+        <a class="folio" href="./experiments/lenticular-index/?v=20260721" style="--accent: #d8ff36" data-preview="lenticular" aria-label="Open dossier: Lenticular Index">
           <div class="folio-frame">
             <span class="folio-number">No. 010</span>
             <div class="preview" aria-hidden="true"></div>
@@ -68,7 +81,7 @@
             <p class="summary">A typographic tilt print whose optical ribs flip between two messages as the viewing angle shifts.</p>
           </div>
         </a>
-        <a class="folio" href="./experiments/signal-descent/" style="--accent: #a8ff76" data-preview="signal" aria-label="Open dossier: Signal Descent">
+        <a class="folio" href="./experiments/signal-descent/?v=20260721" style="--accent: #a8ff76" data-preview="signal" aria-label="Open dossier: Signal Descent">
           <div class="folio-frame">
             <span class="folio-number">No. 009</span>
             <div class="preview" aria-hidden="true"></div>
@@ -85,7 +98,7 @@
             <p class="summary">A tactile lunar downlink whose scan beam resolves noise, relief, and telemetry into signal lock.</p>
           </div>
         </a>
-        <a class="folio" href="./experiments/temporal-slit/" style="--accent: #dfff37" data-preview="slit" aria-label="Open dossier: Temporal Slit">
+        <a class="folio" href="./experiments/temporal-slit/?v=20260721" style="--accent: #dfff37" data-preview="slit" aria-label="Open dossier: Temporal Slit">
           <div class="folio-frame">
             <span class="folio-number">No. 008</span>
             <div class="preview" aria-hidden="true"></div>
@@ -102,7 +115,7 @@
             <p class="summary">A draggable scan head that stretches recent motion into a field of typographic time slices.</p>
           </div>
         </a>
-        <a class="folio" href="./experiments/chromatic-press/" style="--accent: #00a9ce" data-preview="press" aria-label="Open dossier: Chromatic Press">
+        <a class="folio" href="./experiments/chromatic-press/?v=20260721" style="--accent: #00a9ce" data-preview="press" aria-label="Open dossier: Chromatic Press">
           <div class="folio-frame">
             <span class="folio-number">No. 007</span>
             <div class="preview" aria-hidden="true"></div>
@@ -119,7 +132,7 @@
             <p class="summary">A tactile CMYK proof whose four ink plates separate, lag, and settle into register.</p>
           </div>
         </a>
-        <a class="folio" href="./experiments/contour-chorus/" style="--accent: #ff674c" data-preview="contour" aria-label="Open dossier: Contour Chorus">
+        <a class="folio" href="./experiments/contour-chorus/?v=20260721" style="--accent: #ff674c" data-preview="contour" aria-label="Open dossier: Contour Chorus">
           <div class="folio-frame">
             <span class="folio-number">No. 006</span>
             <div class="preview" aria-hidden="true"></div>
@@ -136,7 +149,7 @@
             <p class="summary">A topographic line field conducted by pointer position, velocity, and fading echoes.</p>
           </div>
         </a>
-        <a class="folio" href="./experiments/config-signal-loom/" style="--accent: #8a63ff" data-preview="loom" aria-label="Open dossier: Config Signal Loom">
+        <a class="folio" href="./experiments/config-signal-loom/?v=20260721" style="--accent: #8a63ff" data-preview="loom" aria-label="Open dossier: Config Signal Loom">
           <div class="folio-frame">
             <span class="folio-number">No. 005</span>
             <div class="preview" aria-hidden="true"></div>
@@ -155,7 +168,7 @@
             </p>
           </div>
         </a>
-        <a class="folio" href="./experiments/civic-burst-field/" style="--accent: #ff5d2e" data-preview="burst" aria-label="Open dossier: Civic Burst Field">
+        <a class="folio" href="./experiments/civic-burst-field/?v=20260721" style="--accent: #ff5d2e" data-preview="burst" aria-label="Open dossier: Civic Burst Field">
           <div class="folio-frame">
             <span class="folio-number">No. 004</span>
             <div class="preview" aria-hidden="true"></div>
@@ -174,7 +187,7 @@
             </p>
           </div>
         </a>
-        <a class="folio" href="./experiments/command-gravity/" style="--accent: #111827" data-preview="command" aria-label="Open dossier: Command Gravity">
+        <a class="folio" href="./experiments/command-gravity/?v=20260721" style="--accent: #111827" data-preview="command" aria-label="Open dossier: Command Gravity">
           <div class="folio-frame">
             <span class="folio-number">No. 003</span>
             <div class="preview" aria-hidden="true"></div>
@@ -193,7 +206,7 @@
             </p>
           </div>
         </a>
-        <a class="folio" href="./experiments/tension-type/" style="--accent: #ff4d24" data-preview="tension" aria-label="Open dossier: Tension Type">
+        <a class="folio" href="./experiments/tension-type/?v=20260721" style="--accent: #ff4d24" data-preview="tension" aria-label="Open dossier: Tension Type">
           <div class="folio-frame">
             <span class="folio-number">No. 002</span>
             <div class="preview" aria-hidden="true"></div>
@@ -212,7 +225,7 @@
             </p>
           </div>
         </a>
-        <a class="folio" href="./experiments/crease-memory/" style="--accent: #d9ff57" data-preview="crease" aria-label="Open dossier: Crease Memory">
+        <a class="folio" href="./experiments/crease-memory/?v=20260721" style="--accent: #d9ff57" data-preview="crease" aria-label="Open dossier: Crease Memory">
           <div class="folio-frame">
             <span class="folio-number">No. 001</span>
             <div class="preview" aria-hidden="true"></div>
@@ -246,9 +259,10 @@
         &mdash; interaction, motion, typography, canvas &mdash; more than a
         finished taxonomy.
       </p>
-      <p class="footer-mark">&sect; Studio Archive, catalogued and maintained by MK</p>
+      <p class="footer-mark">&sect; Always Cooking, catalogued and maintained by MK</p>
     </footer>
 
-    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="./src/theme.js"></script>
+    <script type="module" src="./src/app.js?v=20260721-2"></script>
   </body>
 </html>

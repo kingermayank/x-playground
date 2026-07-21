@@ -8,11 +8,26 @@
       content="A post-Figma-Config sketch where conference themes become draggable product idea signals."
     >
     <title>Config Signal Loom</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('always-cooking-theme');
+          document.documentElement.dataset.theme = savedTheme === 'arcade' ? 'arcade' : 'archive';
+        } catch {
+          document.documentElement.dataset.theme = 'archive';
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="../experiment.css">
   </head>
   <body>
     <header class="project-title-bar">
-      <a href="../../" class="back-link">Back to Experiments</a>
+      <a href="../../?v=20260721" class="back-link">Back to Experiments</a>
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Use Arcade theme" data-theme-toggle>
+        <span>Archive</span>
+        <span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+        <span>Arcade</span>
+      </button>
       <div class="project-title-row">
         <h1 id="title">Config Signal Loom</h1>
         <time class="project-date" datetime="2026-07-07">July 7, 2026</time>
@@ -45,6 +60,7 @@
       </div>
     </main>
 
+    <script type="module" src="../../src/theme.js"></script>
     <script type="module" src="./loom.js"></script>
   </body>
 </html>

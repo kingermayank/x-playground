@@ -4,7 +4,7 @@ import {
   searchExperiments,
   filterExperiments,
   getAllTags,
-} from './experiments.js';
+} from './experiments.js?v=20260721-2';
 
 const state = {
   query: '',

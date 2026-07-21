@@ -161,7 +161,7 @@ test('experiments include required gallery metadata', () => {
 
   for (const item of experiments) {
     assert.match(item.date, /^\d{4}-\d{2}-\d{2}$/);
-    assert.match(item.href, /^\.\/experiments\/[a-z0-9-]+\/$/);
+    assert.match(item.href, /^\.\/experiments\/[a-z0-9-]+\/\?v=20260721$/);
     assert.ok(item.slug.length > 0);
     assert.ok(item.title.length > 0);
     assert.ok(item.concept.length > 0);

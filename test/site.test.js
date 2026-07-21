@@ -19,7 +19,12 @@ test('index page contains gallery landmarks and app hooks', async () => {
   assert.match(html, /id="gallery"/);
   assert.match(html, /id="tagRail"/);
   assert.doesNotMatch(html, /id="galleryCount"/);
-  assert.match(html, /Studio Archive/);
+  assert.match(html, /Always Cooking/);
+  assert.doesNotMatch(html, /Ongoing Accession/);
+  assert.doesNotMatch(html, /class="header-note"/);
+  assert.doesNotMatch(html, /class="cook-loop"/);
+  assert.doesNotMatch(html, /class="cook-pan"/);
+  assert.doesNotMatch(html, /class="cook-flame"/);
   assert.doesNotMatch(html, /Catalog, Vol/);
   assert.doesNotMatch(html, /Cataloguing Method/);
   assert.doesNotMatch(html, /Recently Accessioned/);
@@ -34,7 +39,52 @@ test('index page contains gallery landmarks and app hooks', async () => {
   assert.match(html, /Temporal Slit/);
   assert.match(html, /Signal Descent/);
   assert.match(html, /Lenticular Index/);
-  assert.match(html, /src="\.\/src\/app\.js"/);
+  assert.match(html, /src="\.\/src\/app\.js\?v=20260721-2"/);
+});
+
+test('every page exposes the persistent Archive and Arcade theme switch', async () => {
+  const pagePaths = [
+    'index.html',
+    ...experiments.map((experiment) => `experiments/${experiment.slug}/index.html`),
+  ];
+
+  for (const pagePath of pagePaths) {
+    const html = await readFile(pagePath, 'utf8');
+    const initializerIndex = html.indexOf('always-cooking-theme');
+    const stylesheetIndex = html.indexOf('rel="stylesheet"');
+
+    assert.notEqual(initializerIndex, -1, `${pagePath} initializes the saved theme`);
+    assert.ok(initializerIndex < stylesheetIndex, `${pagePath} initializes before CSS`);
+    assert.match(html, /class="theme-toggle"/);
+    assert.match(html, /data-theme-toggle/);
+    assert.match(html, /role="switch"/);
+    assert.match(html, /aria-checked="false"/);
+    assert.match(html, />Archive</);
+    assert.match(html, />Arcade</);
+    assert.doesNotMatch(html, />Studio Archive</);
+    assert.doesNotMatch(html, />Dossier</);
+
+    if (pagePath === 'index.html') {
+      assert.match(html, /src="\.\/src\/theme\.js"/);
+    } else {
+      assert.match(html, /src="\.\.\/\.\.\/src\/theme\.js"/);
+    }
+  }
+});
+
+test('gallery and detail navigation request the current themed shell', async () => {
+  const homepage = await readFile('index.html', 'utf8');
+
+  for (const experiment of experiments) {
+    assert.match(experiment.href, /\?v=20260721$/);
+    assert.match(
+      homepage,
+      new RegExp(`href="\\.\\/experiments\\/${experiment.slug}\\/\\?v=20260721"`),
+    );
+
+    const detail = await readFile(`experiments/${experiment.slug}/index.html`, 'utf8');
+    assert.match(detail, /href="\.\.\/\.\.\/\?v=20260721"/);
+  }
 });
 
 test('signal descent exposes an accessible transmission scrubber', async () => {
@@ -108,7 +158,7 @@ test('tension type page exposes an elastic typographic interaction', async () =>
 test('browser app imports experiment helpers and renders cards', async () => {
   const app = await readFile('src/app.js', 'utf8');
 
-  assert.match(app, /from '\.\/experiments\.js'/);
+  assert.match(app, /from '\.\/experiments\.js\?v=20260721-2'/);
   assert.match(app, /function renderGallery/);
   assert.match(app, /searchExperiments/);
   assert.doesNotMatch(app, /createFilterButton/);
@@ -120,12 +170,36 @@ test('browser app imports experiment helpers and renders cards', async () => {
 test('styles define a responsive visual gallery', async () => {
   const css = await readFile('styles.css', 'utf8');
 
+  assert.match(css, /--bg: #5a4698/);
+  assert.match(css, /--surface: #f3e4ff/);
+  assert.match(css, /--ink: #261638/);
+  assert.match(css, /--on-purple: #fff3d6/);
+  assert.match(css, /--accent-ink: #ff9f1c/);
+  assert.match(css, /repeating-linear-gradient\(90deg/);
+  assert.match(css, /repeating-linear-gradient\(0deg/);
   assert.match(css, /\.toolbar\s*{[^}]*display: grid;/s);
+  assert.doesNotMatch(css, /\.cook-loop\s*{/);
+  assert.doesNotMatch(css, /@keyframes pan-toss/);
+  assert.doesNotMatch(css, /@keyframes toss-arc/);
+  assert.doesNotMatch(css, /@keyframes flame-pulse/);
+  assert.match(css, /ArcadeClassic V1/);
+  assert.match(css, /Nippo/);
+  assert.match(css, /h1\s*{[^}]*font-family: var\(--serif\);[^}]*line-height: 0\.82;/s);
+  assert.match(css, /\.folio h2\s*{[^}]*font-family: var\(--sans\);[^}]*line-height: 1\.08;/s);
+  assert.match(css, /\.brand-mark\s*{[^}]*border-radius: 2px;[^}]*box-shadow: 4px 4px 0 var\(--panel\);[^}]*font-family: var\(--sans\);/s);
+  assert.doesNotMatch(css, /\.header-note\s*{/);
+  assert.match(css, /\.folio-number\s*{[^}]*font-family: var\(--sans\);/s);
   assert.match(css, /\.search-control\s*{[^}]*width: 100%;/s);
-  assert.match(css, /\.folio-stamp\s*{[^}]*background: var\(--accent-ink\);[^}]*color: #fffefa;/s);
+  assert.match(css, /\.search-control input\s*{[^}]*border: 3px solid var\(--panel\);[^}]*border-radius: 0;[^}]*box-shadow:[^}]*inset 3px 3px 0/s);
+  assert.match(css, /\.tag-chip\s*{[^}]*border: 2px solid[^}]*border-radius: 0;/s);
+  assert.match(css, /\.folio\s*{[^}]*border: 3px solid var\(--panel\);[^}]*border-radius: 0;[^}]*box-shadow: 6px 6px 0 var\(--panel\);/s);
+  assert.match(css, /\.preview\s*{[^}]*border: 2px solid[^}]*border-radius: 0;/s);
+  assert.match(css, /\.folio-body\s*{[^}]*border-top: 2px solid var\(--panel\);/s);
+  assert.match(css, /\.date\s*{[^}]*background: var\(--panel\);[^}]*color: var\(--on-purple\);/s);
+  assert.match(css, /\.folio-stamp\s*{[^}]*background: var\(--accent-ink\);[^}]*color: var\(--ink\);/s);
   assert.match(css, /\.gallery/);
-  assert.match(css, /grid-template-columns/);
-  assert.match(css, /minmax/);
+  assert.match(css, /grid-template-columns: repeat\(auto-fill, minmax\(min\(100%, 270px\), 270px\)\)/);
+  assert.doesNotMatch(css, /grid-template-columns: repeat\(auto-fit, minmax\(min\(100%, 270px\), 1fr\)\)/);
   assert.match(css, /prefers-reduced-motion/);
   assert.match(css, /data-preview="crease"/);
   assert.match(css, /data-preview="contour"/);
@@ -133,6 +207,22 @@ test('styles define a responsive visual gallery', async () => {
   assert.match(css, /data-preview="slit"/);
   assert.match(css, /data-preview="signal"/);
   assert.match(css, /data-preview="lenticular"/);
+});
+
+test('homepage styles include the cream Archive theme and shared switch', async () => {
+  const css = await readFile('styles.css', 'utf8');
+
+  assert.match(css, /family=Gabarito/);
+  assert.match(css, /family=Newsreader/);
+  assert.match(css, /\.theme-toggle\s*{/);
+  assert.match(css, /\.theme-toggle-track\s*{/);
+  assert.match(css, /\[data-theme="archive"\]\s*{/);
+  assert.match(css, /\[data-theme="archive"\]\s*{[^}]*--bg: #f2ead9;[^}]*--surface: #fbf6e9;[^}]*--ink: #241d14;/s);
+  assert.match(css, /\[data-theme="archive"\]\s*{[^}]*--serif: "Newsreader"[^}]*--sans: "Gabarito"/s);
+  assert.match(css, /\[data-theme="archive"\] body\s*{[^}]*radial-gradient\(circle at top left/s);
+  assert.match(css, /\[data-theme="archive"\] \.brand-mark\s*{[^}]*border-radius: 50%;[^}]*box-shadow: none;/s);
+  assert.match(css, /\[data-theme="archive"\] \.folio\s*{[^}]*border: 1px solid var\(--line\);[^}]*box-shadow: var\(--shadow\);/s);
+  assert.match(css, /\[data-theme="archive"\] h1\s*{[^}]*line-height: 0\.98;/s);
 });
 
 test('each real experiment has a preview page with an interactive surface', async () => {
@@ -305,19 +395,48 @@ test('command gravity recorder avoids server binding by default', async () => {
   assert.doesNotMatch(script, /executablePath:\s*chromePath/);
 });
 
-test('experiment detail styles use an archival fixed light layout', async () => {
+test('experiment detail styles use the shared purple retro layout', async () => {
   const css = await readFile('experiments/experiment.css', 'utf8');
 
-  assert.match(css, /--bg: #f2ead9/);
-  assert.match(css, /Newsreader/);
-  assert.match(css, /Gabarito/);
+  assert.match(css, /--bg: #5a4698/);
+  assert.match(css, /--surface: #f3e4ff/);
+  assert.match(css, /--ink: #261638/);
+  assert.match(css, /--on-purple: #fff3d6/);
+  assert.match(css, /--accent-ink: #ff9f1c/);
+  assert.match(css, /repeating-linear-gradient\(90deg/);
+  assert.match(css, /repeating-linear-gradient\(0deg/);
+  assert.match(css, /ArcadeClassic V1/);
+  assert.match(css, /Nippo/);
   assert.match(css, /\.project-title-bar/);
-  assert.match(css, /\.back-link\s*{[^}]*grid-column: 1;/s);
-  assert.match(css, /content: "Dossier"/);
-  assert.match(css, /content: "Filed"/);
-  assert.match(css, /\.project-date/);
-  assert.match(css, /\.experiment-stage-wrap/);
+  assert.match(css, /\.project-title-bar\s*{[^}]*grid-template-columns: minmax\(0, 1fr\) auto;[^}]*padding: 36px 0 40px;/s);
+  assert.match(css, /h1\s*{[^}]*font-family: var\(--serif\);/s);
+  assert.match(css, /\.back-link\s*{[^}]*grid-column: 1;[^}]*border: 2px solid var\(--panel\);[^}]*background: var\(--surface\);[^}]*font-family: var\(--sans\);/s);
+  assert.match(css, /\.theme-toggle\s*{[^}]*grid-column: 2;[^}]*grid-row: 1;[^}]*justify-self: end;/s);
+  assert.match(css, /\.back-link\s*{[^}]*border-radius: 0;/s);
+  assert.match(css, /\.project-title-bar::after\s*{[^}]*border-radius: 0;/s);
+  assert.match(css, /\.experiment-stage-wrap::before\s*{[^}]*font-family: var\(--sans\);/s);
+  assert.doesNotMatch(css, /content: "Dossier"/);
+  assert.match(css, /\.project-title-bar::after\s*{[^}]*position: static;[^}]*grid-column: 2;[^}]*justify-self: end;[^}]*content: "Filed";[^}]*transform: none;/s);
+  assert.match(css, /\.project-title-row\s*{[^}]*display: grid;[^}]*grid-template-columns: minmax\(0, 1fr\) auto;/s);
+  assert.doesNotMatch(css, /\.project-title-row\s*{[^}]*padding-right:/s);
+  assert.match(css, /\.project-date\s*{[^}]*justify-self: end;[^}]*text-align: right;/s);
+  assert.match(css, /\.experiment-stage-wrap\s*{[^}]*background: var\(--surface\);/s);
+  assert.match(css, /\.experiment-stage-wrap\s*{[^}]*border-radius: 0;/s);
+  assert.doesNotMatch(css, /\.experiment-stage-wrap\s*{[^}]*repeating-linear-gradient/s);
   assert.match(css, /content: "Live dossier"/);
   assert.doesNotMatch(css, /\.loom-page\s*{[^}]*radial-gradient/s);
   assert.doesNotMatch(css, /\.burst-page\s*{[^}]*radial-gradient/s);
+});
+
+test('experiment detail styles include the cream Archive shell', async () => {
+  const css = await readFile('experiments/experiment.css', 'utf8');
+
+  assert.match(css, /family=Gabarito/);
+  assert.match(css, /family=Newsreader/);
+  assert.match(css, /\.theme-toggle\s*{/);
+  assert.match(css, /\[data-theme="archive"\]\s*{[^}]*--bg: #f2ead9;[^}]*--surface: #fbf6e9;[^}]*--ink: #241d14;/s);
+  assert.match(css, /\[data-theme="archive"\] \.project-title-bar\s*{[^}]*border-bottom: 1px solid var\(--line\);/s);
+  assert.match(css, /\[data-theme="archive"\] \.back-link\s*{[^}]*border: 1px solid var\(--line\);[^}]*box-shadow: none;/s);
+  assert.match(css, /\[data-theme="archive"\] h1\s*{[^}]*font-family: var\(--serif\);/s);
+  assert.match(css, /\[data-theme="archive"\] \.experiment-stage-wrap\s*{[^}]*border: 1px solid var\(--line\);[^}]*box-shadow: var\(--shadow\);/s);
 });
