@@ -18,7 +18,11 @@ test('index page contains gallery landmarks and app hooks', async () => {
   assert.doesNotMatch(html, /id="tagFilters"/);
   assert.match(html, /id="gallery"/);
   assert.match(html, /id="galleryCount"/);
-  assert.match(html, /Experiments/);
+  assert.match(html, /Studio Archive/);
+  assert.doesNotMatch(html, /Catalog, Vol/);
+  assert.doesNotMatch(html, /Cataloguing Method/);
+  assert.doesNotMatch(html, /Recently Accessioned/);
+  assert.doesNotMatch(html, /id="ledgerHoldings"/);
   assert.match(html, /Config Signal Loom/);
   assert.match(html, /Civic Burst Field/);
   assert.match(html, /Command Gravity/);
@@ -297,13 +301,17 @@ test('command gravity recorder avoids server binding by default', async () => {
   assert.doesNotMatch(script, /executablePath:\s*chromePath/);
 });
 
-test('experiment detail styles use a fixed light layout without page gradients', async () => {
+test('experiment detail styles use an archival fixed light layout', async () => {
   const css = await readFile('experiments/experiment.css', 'utf8');
 
-  assert.match(css, /--bg: #f7f6f1/);
+  assert.match(css, /--bg: #f2ead9/);
+  assert.match(css, /--serif:/);
   assert.match(css, /\.project-title-bar/);
+  assert.match(css, /content: "Dossier"/);
+  assert.match(css, /content: "Filed"/);
   assert.match(css, /\.project-date/);
   assert.match(css, /\.experiment-stage-wrap/);
+  assert.match(css, /content: "Live dossier"/);
   assert.doesNotMatch(css, /\.loom-page\s*{[^}]*radial-gradient/s);
   assert.doesNotMatch(css, /\.burst-page\s*{[^}]*radial-gradient/s);
 });
