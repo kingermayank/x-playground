@@ -20,7 +20,6 @@ const accessionBySlug = new Map(
 
 const searchInput = document.querySelector('#experimentSearch');
 const gallery = document.querySelector('#gallery');
-const galleryCount = document.querySelector('#galleryCount');
 const tagRail = document.querySelector('#tagRail');
 
 function createTagButton(tag) {
@@ -111,10 +110,6 @@ function renderGallery() {
   const byTag = filterExperiments(experiments, state.tag);
   const visibleExperiments = searchExperiments(byTag, state.query);
   gallery.replaceChildren(...visibleExperiments.map(createCard));
-
-  const noun = visibleExperiments.length === 1 ? 'holding' : 'holdings';
-  const suffix = state.query ? ` for "${state.query}"` : '';
-  galleryCount.textContent = `${visibleExperiments.length} ${noun}${suffix}`;
 }
 
 searchInput.addEventListener('input', () => {

@@ -89,7 +89,6 @@ main {
 
 .header-note,
 .eyebrow,
-.gallery-count,
 .date,
 .summary {
   color: var(--muted);
@@ -102,7 +101,6 @@ main {
 }
 
 .eyebrow,
-.gallery-count,
 .date {
   font-size: 0.76rem;
 }
@@ -134,18 +132,15 @@ h1 {
 }
 
 .toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  align-items: end;
-  justify-content: space-between;
+  display: grid;
+  gap: 14px;
   padding: 26px 0 28px;
   border-top: 1px solid var(--line);
 }
 
 .search-control {
   display: grid;
-  width: min(100%, 360px);
+  width: 100%;
   gap: 8px;
 }
 
@@ -180,7 +175,6 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  flex: 1 1 260px;
 }
 
 .tag-chip {
@@ -210,12 +204,6 @@ h1 {
   border-color: var(--ink);
   background: var(--ink);
   color: var(--surface);
-}
-
-.gallery-count {
-  flex: 0 0 auto;
-  margin: 0;
-  font-variant-numeric: tabular-nums;
 }
 
 .gallery {
@@ -270,7 +258,8 @@ h1 {
   padding: 4px 10px;
   border: 2px solid var(--accent-ink);
   border-radius: 3px;
-  color: var(--accent-ink);
+  background: var(--accent-ink);
+  color: #fffefa;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;

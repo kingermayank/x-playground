@@ -17,7 +17,8 @@ test('index page contains gallery landmarks and app hooks', async () => {
   assert.match(html, /id="experimentSearch"/);
   assert.doesNotMatch(html, /id="tagFilters"/);
   assert.match(html, /id="gallery"/);
-  assert.match(html, /id="galleryCount"/);
+  assert.match(html, /id="tagRail"/);
+  assert.doesNotMatch(html, /id="galleryCount"/);
   assert.match(html, /Studio Archive/);
   assert.doesNotMatch(html, /Catalog, Vol/);
   assert.doesNotMatch(html, /Cataloguing Method/);
@@ -112,13 +113,16 @@ test('browser app imports experiment helpers and renders cards', async () => {
   assert.match(app, /searchExperiments/);
   assert.doesNotMatch(app, /createFilterButton/);
   assert.doesNotMatch(app, /className = 'tags'/);
+  assert.doesNotMatch(app, /galleryCount/);
   assert.match(app, /href/);
-  assert.match(app, /galleryCount/);
 });
 
 test('styles define a responsive visual gallery', async () => {
   const css = await readFile('styles.css', 'utf8');
 
+  assert.match(css, /\.toolbar\s*{[^}]*display: grid;/s);
+  assert.match(css, /\.search-control\s*{[^}]*width: 100%;/s);
+  assert.match(css, /\.folio-stamp\s*{[^}]*background: var\(--accent-ink\);[^}]*color: #fffefa;/s);
   assert.match(css, /\.gallery/);
   assert.match(css, /grid-template-columns/);
   assert.match(css, /minmax/);
