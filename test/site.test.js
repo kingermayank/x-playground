@@ -305,8 +305,10 @@ test('experiment detail styles use an archival fixed light layout', async () => 
   const css = await readFile('experiments/experiment.css', 'utf8');
 
   assert.match(css, /--bg: #f2ead9/);
-  assert.match(css, /--serif:/);
+  assert.match(css, /Newsreader/);
+  assert.match(css, /Gabarito/);
   assert.match(css, /\.project-title-bar/);
+  assert.match(css, /\.back-link\s*{[^}]*grid-column: 1;/s);
   assert.match(css, /content: "Dossier"/);
   assert.match(css, /content: "Filed"/);
   assert.match(css, /\.project-date/);
