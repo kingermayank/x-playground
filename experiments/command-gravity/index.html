@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A command palette where search results behave like weighted objects in a spatial field."
+    >
+    <title>Command Gravity</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1 id="title">Command Gravity</h1>
+        <time class="project-date" datetime="2026-07-08">July 8, 2026</time>
+      </div>
+      <p class="project-description">
+        Drag nodes, click results, type, or use arrow keys. Commands pull into
+        clusters and snap into focus as if a palette had mass.
+      </p>
+    </header>
+
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card command-stage" aria-label="Interactive Command Gravity prototype">
+          <canvas id="commandCanvas" width="1200" height="760"></canvas>
+          <div class="command-shell">
+            <div class="command-panel">
+              <label class="command-label" for="commandSearch">Command field</label>
+              <input
+                id="commandSearch"
+                class="command-search"
+                type="search"
+                value=""
+                placeholder="Try motion, tokens, layout..."
+                autocomplete="off"
+                spellcheck="false"
+                aria-describedby="commandHint"
+              >
+              <p id="commandHint" class="command-hint">
+                Click the field to pull the active command there. Drag near a node to move it.
+                Use ↑ ↓ to shift gravity. Enter pins the active command.
+              </p>
+              <div class="gravity-chip-row" aria-label="Search presets">
+                <button class="gravity-chip" type="button" data-query="motion">motion</button>
+                <button class="gravity-chip" type="button" data-query="tokens">tokens</button>
+                <button class="gravity-chip" type="button" data-query="layout">layout</button>
+                <button class="gravity-chip" type="button" data-query="export">export</button>
+              </div>
+            </div>
+
+            <ol class="command-results" id="commandResults" aria-label="Command results"></ol>
+          </div>
+          <div class="gravity-nodes" id="gravityNodes" aria-label="Draggable command nodes"></div>
+          <p class="gravity-status" id="gravityStatus" aria-live="polite">
+            Click the field, drag near a node, or choose a command to move the field.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./command-gravity.js"></script>
+  </body>
+</html>

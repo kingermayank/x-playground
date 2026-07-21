@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A two-sided editorial poster revealed through one tactile, draggable crease.">
+    <title>Crease Memory</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1 id="title">Crease Memory</h1>
+        <time class="project-date" datetime="2026-07-13">July 13, 2026</time>
+      </div>
+      <p class="project-description">
+        Drag the crease to expose the poster’s second reading. Release to let
+        the sheet settle, or use the arrow keys to move between authored folds.
+      </p>
+    </header>
+
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card crease-stage" aria-label="Interactive Crease Memory prototype">
+          <canvas
+            id="creaseCanvas"
+            width="1200"
+            height="760"
+            tabindex="0"
+            aria-label="Two-sided poster with a draggable vertical crease"
+            aria-describedby="creaseInstructions creaseStatus"
+          ></canvas>
+          <p class="visually-hidden" id="creaseInstructions">
+            Drag horizontally to move the fold. Press Left or Right Arrow to
+            choose a fold position. Press Home to reset.
+          </p>
+          <div class="crease-hud">
+            <div class="crease-readout" aria-hidden="true">
+              <span>Reverse exposed</span>
+              <strong id="creaseValue">22%</strong>
+            </div>
+            <p id="creaseStatus" class="crease-status" aria-live="polite">
+              Fold resting at the right registration mark.
+            </p>
+            <button id="creaseReset" class="crease-reset" type="button">Reset fold</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./crease-memory.js"></script>
+  </body>
+</html>

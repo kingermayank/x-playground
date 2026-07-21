@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A tactile lunar transmission resolved by a draggable scan beam.">
+    <title>Signal Descent — Experiments</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a class="back-link" href="../../">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1>Signal Descent</h1>
+        <time class="project-date" datetime="2026-07-20">Jul 20, 2026</time>
+      </div>
+      <p class="project-description">Scrub a transmission beam across lunar noise to resolve the moment Tranquility Base came through.</p>
+    </header>
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card signal-stage" aria-label="Signal Descent interactive transmission">
+          <canvas id="signalCanvas" tabindex="0" aria-describedby="signalInstructions"></canvas>
+          <div class="signal-hud">
+            <div class="signal-readout">
+              <span>DOWNLINK</span>
+              <strong id="signalReadout">ACQUIRING · 18%</strong>
+            </div>
+            <p id="signalInstructions">Drag or use arrow keys to resolve the signal. Home resets.</p>
+            <button class="material-button" id="signalReset" type="button">Reset scan</button>
+          </div>
+          <p class="visually-hidden" id="signalStatus" aria-live="polite">Signal acquiring at 18 percent.</p>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./signal-descent.js"></script>
+  </body>
+</html>

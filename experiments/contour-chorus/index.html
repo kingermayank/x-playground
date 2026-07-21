@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A typographic topography conducted by pointer velocity and position.">
+    <title>Contour Chorus</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1>Contour Chorus</h1>
+        <time class="project-date" datetime="2026-07-14">July 14, 2026</time>
+      </div>
+      <p class="project-description">Conduct the field with your pointer. Move quickly to raise the chorus, then click or press Space to leave a fading echo.</p>
+    </header>
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card contour-stage" aria-label="Interactive Contour Chorus prototype">
+          <canvas id="contourCanvas" width="1200" height="760" tabindex="0" aria-label="Animated topographic line field" aria-describedby="contourInstructions contourStatus"></canvas>
+          <p class="visually-hidden" id="contourInstructions">Move the pointer or use arrow keys to conduct. Click or press Space to pin an echo. Press Home to reset.</p>
+          <div class="contour-hud">
+            <div><span>FIELD / 06</span><strong id="contourEnergy">QUIET</strong></div>
+            <p id="contourStatus" aria-live="polite">Field is quiet. Move across the surface to conduct.</p>
+            <button id="contourReset" class="material-button" type="button">Clear echoes</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./contour-chorus.js"></script>
+  </body>
+</html>

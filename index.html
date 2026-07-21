@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A minimal visual gallery for daily creative experiments."
+    >
+    <title>Experiments</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Experiments home">MK</a>
+      <p class="header-note">Daily playground</p>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="eyebrow">Playground</p>
+        <h1 id="pageTitle">Experiments</h1>
+        <p class="lede">
+          A growing index of small visual systems, interface sketches, and
+          browser-made studies.
+        </p>
+      </section>
+
+      <section class="toolbar" aria-label="Gallery controls">
+        <label class="search-control" for="experimentSearch">
+          <span>Search experiments</span>
+          <input
+            id="experimentSearch"
+            type="search"
+            placeholder="Search by title, date, or idea..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </label>
+        <p class="gallery-count" id="galleryCount" aria-live="polite">10 experiments</p>
+      </section>
+
+      <section class="gallery" id="gallery" aria-label="Experiment gallery">
+        <a class="card" href="./experiments/lenticular-index/" style="--accent: #d8ff36" data-preview="lenticular" aria-label="Open Lenticular Index">
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Lenticular Index</h2>
+              <time class="date" datetime="2026-07-21">Jul 21, 2026</time>
+            </div>
+            <p class="summary">A typographic tilt print whose optical ribs flip between two messages as the viewing angle shifts.</p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a class="card" href="./experiments/signal-descent/" style="--accent: #a8ff76" data-preview="signal" aria-label="Open Signal Descent">
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Signal Descent</h2>
+              <time class="date" datetime="2026-07-20">Jul 20, 2026</time>
+            </div>
+            <p class="summary">A tactile lunar downlink whose scan beam resolves noise, relief, and telemetry into signal lock.</p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a class="card" href="./experiments/temporal-slit/" style="--accent: #dfff37" data-preview="slit" aria-label="Open Temporal Slit">
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Temporal Slit</h2>
+              <time class="date" datetime="2026-07-16">Jul 16, 2026</time>
+            </div>
+            <p class="summary">A draggable scan head that stretches recent motion into a field of typographic time slices.</p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/chromatic-press/"
+          style="--accent: #00a9ce"
+          data-preview="press"
+          aria-label="Open Chromatic Press"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Chromatic Press</h2>
+              <time class="date" datetime="2026-07-15">Jul 15, 2026</time>
+            </div>
+            <p class="summary">A tactile CMYK proof whose four ink plates separate, lag, and settle into register.</p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/contour-chorus/"
+          style="--accent: #ff674c"
+          data-preview="contour"
+          aria-label="Open Contour Chorus"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Contour Chorus</h2>
+              <time class="date" datetime="2026-07-14">Jul 14, 2026</time>
+            </div>
+            <p class="summary">A topographic line field conducted by pointer position, velocity, and fading echoes.</p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/config-signal-loom/"
+          style="--accent: #8a63ff"
+          data-preview="loom"
+          aria-label="Open Config Signal Loom"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Config Signal Loom</h2>
+              <time class="date" datetime="2026-07-07">Jul 7, 2026</time>
+            </div>
+            <p class="summary">
+              A post-Config sketch where conference themes become draggable product idea signals.
+            </p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/civic-burst-field/"
+          style="--accent: #ff5d2e"
+          data-preview="burst"
+          aria-label="Open Civic Burst Field"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Civic Burst Field</h2>
+              <time class="date" datetime="2026-07-04">Jul 4, 2026</time>
+            </div>
+            <p class="summary">
+              A Fourth-of-July interaction study about heat, sound, night light, and burst physics.
+            </p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/command-gravity/"
+          style="--accent: #111827"
+          data-preview="command"
+          aria-label="Open Command Gravity"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Command Gravity</h2>
+              <time class="date" datetime="2026-07-08">Jul 8, 2026</time>
+            </div>
+            <p class="summary">
+              A command palette where search results behave like weighted objects in a spatial field.
+            </p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/tension-type/"
+          style="--accent: #ff4d24"
+          data-preview="tension"
+          aria-label="Open Tension Type"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Tension Type</h2>
+              <time class="date" datetime="2026-07-11">Jul 11, 2026</time>
+            </div>
+            <p class="summary">
+              An elastic type field that turns pointer velocity into visible typographic tension.
+            </p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+        <a
+          class="card"
+          href="./experiments/crease-memory/"
+          style="--accent: #d9ff57"
+          data-preview="crease"
+          aria-label="Open Crease Memory"
+        >
+          <div class="preview" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h2>Crease Memory</h2>
+              <time class="date" datetime="2026-07-13">Jul 13, 2026</time>
+            </div>
+            <p class="summary">
+              A two-sided editorial poster revealed through one tactile, draggable crease.
+            </p>
+            <span class="open-cue">Preview</span>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

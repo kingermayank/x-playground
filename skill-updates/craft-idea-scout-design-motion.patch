@@ -1,0 +1,143 @@
+*** Begin Patch
+*** Update File: /Users/mayankkinger/.codex/skills/craft-idea-scout/SKILL.md
+@@
+-description: Creative project strategist for product designers, interaction designers, creative technologists, and design engineers. Use when generating, selecting, critiquing, or scoping creative experiments, interactive prototypes, visual systems, design tools, generative interfaces, data-driven artifacts, physical-digital experiments, or portfolio side projects, especially from references such as X posts, screenshots, videos, portfolios, product launches, art installations, GitHub projects, papers, or creative coding experiments.
++description: Creative project strategist for product designers, interaction designers, creative technologists, and design engineers. Use when generating, selecting, critiquing, or scoping creative experiments, interactive prototypes, motion studies, design-engineering artifacts, visual systems, design tools, generative interfaces, data-driven artifacts, physical-digital experiments, or portfolio side projects, especially from references such as X posts, screenshots, videos, portfolios, product launches, festivals, holidays, cultural moments, art installations, GitHub projects, papers, or creative coding experiments.
+@@
+ - Prefer experiments over generic applications.
+ - Require every recommendation to have a creative thesis, not only a function.
+ - Make visual craft and engineering reinforce each other.
++- Bias most ideas toward design engineering, interaction craft, and motion chops that can be judged from a short visual demo.
+ - Scope around one memorable behavior.
+ - Preserve the ambition of references without copying their visible result.
+ - Reduce breadth before reducing craft.
+@@
+ - The user is comfortable with modern frontend development.
+ - Visual polish matters more than production-scale infrastructure.
++- Most ideas should demonstrate visible UI, motion, graphics, or interaction prowess rather than invisible infrastructure.
+ - The result should be easy to record, share, or add to a playground site.
+@@
+ 1. Identify the creative territory in one sentence.
+-2. Generate several conceptually different directions rather than minor variants.
+-3. For each direction, identify the central behavior that would make it memorable.
+-4. Define the smallest convincing version that proves the thesis.
+-5. Add one technical challenge that directly supports the concept.
+-6. Name stretch directions that deepen the thesis, not generic product features.
+-7. Explain the portfolio signal.
+-8. Select the strongest idea when enough context exists.
++2. Check for timely anchors: upcoming festivals, holidays, conferences, platform launches, product events, seasonal shifts, public rituals, or internet-cultural moments that could make the idea more relevant.
++3. Apply the design-engineering lens: what visual behavior, motion system, interaction detail, or component craft would make this impressive in a 10-second clip?
++4. Use a "what if" prompt when useful to unlock playful directions, then ground it in a buildable interaction.
++5. Generate several conceptually different directions rather than minor variants.
++6. For each direction, identify the central behavior that would make it memorable.
++7. Define the smallest convincing version that proves the thesis.
++8. Add one technical challenge that directly supports the concept.
++9. Name stretch directions that deepen the thesis, not generic product features.
++10. Explain the portfolio signal.
++11. Select the strongest idea when enough context exists.
+ 
+-Read `references/scout-rubric.md` when the task involves reference analysis, scoring ideas, generating a large batch, adapting ideas to constraints, or selecting a daily project to build.
++Read `references/scout-rubric.md` when the task involves reference analysis, event-aware generation, design-engineering/motion-heavy idea generation, scoring ideas, generating a large batch, adapting ideas to constraints, or selecting a daily project to build.
++
++## Design Engineering And Motion Bias
++
++Most ideas should feel like something a strong design engineer could post as a short demo: visually legible, technically crafted, and centered on interaction quality. Prioritize:
++
++- Motion studies, tactile UI details, spatial transitions, generative surfaces, component experiments, layout physics, shader/canvas/WebGL/WebGPU sketches, and tool-like prototypes.
++- One polished behavior over a broad product concept. Examples: a tab bar with physical tension, a file browser that folds by recency, a color picker with fluid memory, a design-token inspector with magnetic grouping.
++- Ideas that reveal implementation taste: easing, timing, constraints, gesture handling, responsive behavior, rendering performance, and state visualization.
++- "What if" prompts that produce visual hypotheses, such as "What if a dropdown had gravity?", "What if design tokens behaved like weather?", or "What if scrolling tuned a material?"
++
++Avoid ideas whose main value would be backend logic, dashboards, CRUD workflows, generic AI chat, or written content unless the visible interaction system is the point.
+@@
+ ## Generation Modes
+ 
+ - Broad exploration: produce a practical tool, visual experiment, data-driven concept, interaction study, and wildcard.
+ - Taste-matched exploration: infer visual qualities, interaction preferences, desired complexity, emotional tone, and technical interests from references.
++- Design-engineering exploration: produce motion-heavy UI components, interaction studies, visual systems, browser instruments, and polished demos that show craft quickly.
++- Event-aware exploration: use upcoming festivals, holidays, conferences, product launches, or cultural moments as creative constraints for timely experiments.
+ - Technology-led exploration: begin from the expressive capability of a technology such as WebGL, Web Audio, computer vision, variable fonts, embeddings, Canvas, D3, or browser APIs.
+@@
+ ### Central interaction
+ 
+ Describe the one behavior that should receive the most design and engineering attention.
++
++### Visual and motion proof
++
++Describe what a viewer would notice in the first 10 seconds: motion quality, interaction response, rendering technique, layout transformation, or visual system.
+*** Update File: /Users/mayankkinger/.codex/skills/craft-idea-scout/references/scout-rubric.md
+@@
+ A strong idea should answer:
+ 
+ - What is the project investigating?
+ - Why is the interaction interesting?
+ - What makes the visual result distinctive?
++- What motion, interaction, or visual craft would be obvious in a short demo?
+ - What technical challenge gives the project substance?
+ - Why would someone remember it?
+ - What would it demonstrate in a portfolio?
+@@
+ - Can a design system expose its own internal logic?
+ - Can changes over time be felt rather than read?
+ - Can an AI interface make its interpretation visible?
+ - Can a digital tool develop weight, inertia, and resistance?
++- What if an everyday component behaved like a physical, optical, or musical system?
++- What if a design tool made hidden constraints visible through motion?
+@@
+ ## Portfolio Narratives
+@@
+ - I build interfaces with strong motion and spatial behavior.
++- I can make small interface details feel premium through motion, timing, and rendering craft.
+ - I approach product design through experimentation.
+@@
+ > Project form + subject matter + interaction primitive + visual behavior + technical challenge + constraint + portfolio signal
+@@
+ > A writing archive where notes exist in a magnetic semantic field. Moving one fragment causes related fragments to gather, separate, or form temporary constellations.
++
++For design-engineering and motion ideas, add:
++
++> what-if prompt + component/system + motion behavior + implementation technique
++
++Example:
++
++- What-if prompt: What if a dropdown had gravity?
++- Component/system: command menu
++- Motion behavior: options fall into semantic clusters, then snap into keyboard focus
++- Implementation technique: spring physics, FLIP layout, keyboard navigation
++
++Result:
++
++> A command menu where search results behave like weighted objects: they drop, cluster, and snap into focus while staying fully keyboard-accessible.
+@@
+ ## Project Forms
+@@
+ - Interface component study
+ - Design-system experiment
++- Motion component study
++- Microinteraction prototype
++- Shader UI surface
++- Gesture playground
++- Scroll-driven visual system
+@@
+ ## Visual Behaviors
+@@
+ - Motion exposes causal relationships.
+ - Layers accumulate into a visual history.
+ - Errors become visible artifacts.
+ - Uncertainty appears as variation rather than a warning icon.
++- Interface parts stretch, snap, overshoot, settle, or resist input.
++- Layouts morph continuously instead of swapping states.
++- Scroll, drag, or pointer movement tunes a visible material.
++- Components display hidden constraints through guides, tension, or collision.
++- State changes leave useful trails, echoes, ghosts, or afterimages.
++
++## Design Engineering And Motion Lens
++
++Use this lens for most daily playground ideas and portfolio-side-project ideas:
++
++- Start from an ordinary interface moment: hover, press, drag, sort, resize, search, command palette, carousel, tabs, timeline, upload, inspector, graph, map, dock, tooltip, dropdown, editor, canvas.
++- Ask a playful "what if" question that changes the behavior: physical material, optical illusion, instrument, weather, magnetism, choreography, memory, pressure, gravity, liquid, folding, stitching, echo, decay.
++- Pick one craft proof: spring timing, gesture handling, FLIP transitions, scroll-linked motion, shader effect, particle system, canvas/WebGL rendering, variable font axis, SVG filter, collision/constraint solver, sound-reactive feedback.
++- Keep the first version visually recordable in 10 seconds and understandable without a long explanation.
++- Include accessibility and control quality when the idea is UI-like: keyboard path, reduced motion fallback, clear focus, no layout shift.
+*** End Patch

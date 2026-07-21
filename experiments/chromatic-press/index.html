@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A tactile study in aligning simulated cyan, magenta, yellow, and black printing plates.">
+    <title>Chromatic Press</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1>Chromatic Press</h1>
+        <time class="project-date" datetime="2026-07-15">July 15, 2026</time>
+      </div>
+      <p class="project-description">Pull the registration target to separate the ink plates. Release to watch cyan, magenta, yellow, and black settle into one sharp impression.</p>
+    </header>
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card press-stage" aria-label="Interactive Chromatic Press prototype">
+          <canvas id="pressCanvas" width="1200" height="760" tabindex="0" aria-label="Interactive CMYK registration poster" aria-describedby="pressInstructions pressStatus"></canvas>
+          <p class="visually-hidden" id="pressInstructions">Drag the registration target or use arrow keys to offset the color plates. Release or press Space to register them. Press Home to reset.</p>
+          <div class="press-hud">
+            <div class="press-readout"><span>PRESS / 07</span><strong id="pressState">REGISTERED</strong></div>
+            <p id="pressStatus" aria-live="polite">Plates aligned. Drag the target to pull a color proof.</p>
+            <div class="press-actions">
+              <button id="pressToggle" class="material-button" type="button">Pull proof</button>
+              <button id="pressReset" class="material-button" type="button">Reset</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./chromatic-press.js"></script>
+  </body>
+</html>

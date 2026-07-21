@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A draggable slit that turns motion history into an editorial time scan.">
+    <title>Temporal Slit</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1>Temporal Slit</h1>
+        <time class="project-date" datetime="2026-07-16">July 16, 2026</time>
+      </div>
+      <p class="project-description">
+        Drag the scan head through a moving typographic signal. Speed stretches
+        the recent past into a field of sliced, offset moments.
+      </p>
+    </header>
+
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card slit-stage" aria-label="Interactive Temporal Slit prototype">
+          <canvas id="slitCanvas" width="1200" height="760" tabindex="0"></canvas>
+          <div class="slit-hud">
+            <div class="slit-readout">
+              <span>BUFFER DEPTH</span>
+              <strong id="slitDepth">12 FRAMES</strong>
+            </div>
+            <p id="slitStatus" aria-live="polite">Drag the yellow scan head. Faster gestures widen time.</p>
+            <button class="material-button" id="slitReset" type="button">Reset scan</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./temporal-slit.js"></script>
+  </body>
+</html>

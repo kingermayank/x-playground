@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A post-Figma-Config sketch where conference themes become draggable product idea signals."
+    >
+    <title>Config Signal Loom</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1 id="title">Config Signal Loom</h1>
+        <time class="project-date" datetime="2026-07-07">July 7, 2026</time>
+      </div>
+      <p class="project-description">
+        Drag signal cards into clusters. The loom recombines the closest pair
+        into a design-engineering brief with motion, tooling, and prototype notes.
+      </p>
+    </header>
+
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card" aria-label="Interactive Config Signal Loom">
+          <canvas id="loomCanvas" width="1200" height="760"></canvas>
+          <div class="loom-nodes" id="loomNodes" aria-label="Draggable Config signals"></div>
+          <div class="brief-panel loom-brief-panel">
+            <p class="panel-label">Generated brief</p>
+            <h2 id="briefTitle">Signal Recombiner</h2>
+            <p id="briefText">
+              Drag two signals close together to generate a focused experiment brief.
+            </p>
+            <p class="brief-recipe" id="briefRecipe">
+              Waiting for a strong signal pair.
+            </p>
+          </div>
+          <p class="loom-status" id="loomStatus" aria-live="polite">
+            Drag a signal card. Stronger thread tension creates a sharper concept.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./loom.js"></script>
+  </body>
+</html>

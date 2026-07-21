@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="An elastic typographic field that turns pointer velocity into visible tension."
+    >
+    <title>Tension Type</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1>Tension Type</h1>
+        <time class="project-date" datetime="2026-07-11">July 11, 2026</time>
+      </div>
+      <p class="project-description">
+        Pull the type away from its baseline. Speed becomes force; neighboring
+        glyphs absorb the tension and settle into place.
+      </p>
+    </header>
+
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card tension-stage" aria-label="Interactive Tension Type prototype">
+          <canvas id="tensionCanvas" width="1200" height="760"></canvas>
+
+          <div class="tension-meta" aria-hidden="true">
+            <span>TYPE / MATERIAL STUDY</span>
+            <span>№ 004</span>
+          </div>
+
+          <div class="tension-controls">
+            <label class="tension-force" for="forceControl">
+              <span>Elastic force</span>
+              <input id="forceControl" type="range" min="45" max="120" value="82">
+            </label>
+            <button class="material-button" id="resetTension" type="button">Reset field</button>
+          </div>
+
+          <p class="tension-status" id="tensionStatus" aria-live="polite">
+            Drag through the letterforms, then release.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./tension-type.js"></script>
+  </body>
+</html>

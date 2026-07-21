@@ -1,0 +1,98 @@
+*** Begin Patch
+*** Update File: /Users/mayankkinger/.codex/skills/craft-idea-scout/SKILL.md
+@@
+-description: Creative project strategist for product designers, interaction designers, creative technologists, and design engineers. Use when generating, selecting, critiquing, or scoping creative experiments, interactive prototypes, visual systems, design tools, generative interfaces, data-driven artifacts, physical-digital experiments, or portfolio side projects, especially from references such as X posts, screenshots, videos, portfolios, product launches, art installations, GitHub projects, papers, or creative coding experiments.
++description: Creative project strategist for product designers, interaction designers, creative technologists, and design engineers. Use when generating, selecting, critiquing, or scoping creative experiments, interactive prototypes, visual systems, design tools, generative interfaces, data-driven artifacts, physical-digital experiments, or portfolio side projects, especially from references such as X posts, screenshots, videos, portfolios, product launches, festivals, holidays, cultural moments, art installations, GitHub projects, papers, or creative coding experiments.
+@@
+ ## Workflow
+ 
+ 1. Identify the creative territory in one sentence.
+-2. Generate several conceptually different directions rather than minor variants.
+-3. For each direction, identify the central behavior that would make it memorable.
+-4. Define the smallest convincing version that proves the thesis.
+-5. Add one technical challenge that directly supports the concept.
+-6. Name stretch directions that deepen the thesis, not generic product features.
+-7. Explain the portfolio signal.
+-8. Select the strongest idea when enough context exists.
++2. Check for timely anchors: upcoming festivals, holidays, conferences, platform launches, product events, seasonal shifts, public rituals, or internet-cultural moments that could make the idea more relevant.
++3. Generate several conceptually different directions rather than minor variants.
++4. For each direction, identify the central behavior that would make it memorable.
++5. Define the smallest convincing version that proves the thesis.
++6. Add one technical challenge that directly supports the concept.
++7. Name stretch directions that deepen the thesis, not generic product features.
++8. Explain the portfolio signal.
++9. Select the strongest idea when enough context exists.
+ 
+-Read `references/scout-rubric.md` when the task involves reference analysis, scoring ideas, generating a large batch, adapting ideas to constraints, or selecting a daily project to build.
++Read `references/scout-rubric.md` when the task involves reference analysis, event-aware generation, scoring ideas, generating a large batch, adapting ideas to constraints, or selecting a daily project to build.
++
++## Event-Aware Generation
++
++When the user wants ideas for a daily playground, portfolio sprint, launch window, or social/shareable experiment, include a timely-source pass before generating ideas:
++
++- Identify nearby events: holidays, festivals, conferences, product launches, tool events, sports/cultural moments, seasons, anniversaries, or platform-specific rituals.
++- Use events as constraints, not themes pasted on top. Translate the event into behavior, material, data, timing, ritual, or audience context.
++- Prefer adjacent interpretations over obvious decoration. A Fourth of July idea might explore burst physics, civic archives, heat, night photography, neighborhood sound, or synchronized countdowns rather than just flags and fireworks.
++- For platform events such as Figma Config, connect the idea to the community's real workflows: plugins, component systems, design tokens, collaboration, prototype handoff, critique, or conference-session artifacts.
++- Keep it buildable in the user's time box and useful after the event when possible.
++
++If event timing matters and current-date knowledge may be stale, verify dates before relying on them.
+@@
+ ## Generation Modes
+ 
+ - Broad exploration: produce a practical tool, visual experiment, data-driven concept, interaction study, and wildcard.
+ - Taste-matched exploration: infer visual qualities, interaction preferences, desired complexity, emotional tone, and technical interests from references.
++- Event-aware exploration: use upcoming festivals, holidays, conferences, product launches, or cultural moments as creative constraints for timely experiments.
+ - Technology-led exploration: begin from the expressive capability of a technology such as WebGL, Web Audio, computer vision, variable fonts, embeddings, Canvas, D3, or browser APIs.
+*** Update File: /Users/mayankkinger/.codex/skills/craft-idea-scout/references/scout-rubric.md
+@@
+ ## Idea Formula
+ 
+ Combine:
+ 
+ > Project form + subject matter + interaction primitive + visual behavior + technical challenge + constraint + portfolio signal
+@@
+ > A writing archive where notes exist in a magnetic semantic field. Moving one fragment causes related fragments to gather, separate, or form temporary constellations.
++
++For event-aware ideas, add:
++
++> timely anchor + event ritual/material + audience moment
++
++Example:
++
++- Timely anchor: Figma Config
++- Event ritual/material: design-system announcements, plugin demos, live critique, community recap threads
++- Audience moment: designers collecting ideas and shipping small tools after the conference
++
++Result:
++
++> A Figma plugin concept mapper that turns conference-session notes into draggable component hypotheses, then clusters them by token, workflow, and critique theme.
+@@
+ ## Subject Matter
+ 
+ - Memory
+ - Attention
+ - Time
+@@
+ - Translation
+ - Scale
+ - Rhythm
++
++## Timely Anchors
++
++Use these as creative constraints when the user wants daily ideas, timely launches, or shareable experiments:
++
++- Holidays and festivals: Fourth of July, Diwali, Lunar New Year, Halloween, Pride, Earth Day, local cultural festivals
++- Seasonal shifts: first snow, monsoon, summer heat, back-to-school, daylight saving time, solstice, harvest season
++- Product and tool events: Figma Config, Apple WWDC, Google I/O, Adobe MAX, GitHub Universe, major API/model launches
++- Cultural/media moments: award shows, sports finals, album releases, film premieres, game launches, fashion weeks
++- Civic/public moments: elections, census/data releases, city marathons, transit openings, museum nights
++- Internet rituals: year-in-review, wrapped-style recaps, launch weeks, challenge months, daily creative prompts
++
++Translate each anchor into deeper material:
++
++- Ritual: countdown, reveal, gathering, parade, recap, offering, vote, pledge, critique, demo
++- Data: schedules, maps, weather, public archives, community posts, release notes, session transcripts
++- Sensory cues: light, heat, smoke, sound, crowd density, motion, texture, color systems
++- Technical angle: generative systems, plugins, live data, spatial navigation, timeline scrubbing, collaboration, exportable artifacts
+*** End Patch

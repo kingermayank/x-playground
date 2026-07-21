@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A Fourth-of-July interaction study about heat, sound, night light, and burst physics."
+    >
+    <title>Civic Burst Field</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a href="../../" class="back-link">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1 id="title">Civic Burst Field</h1>
+        <time class="project-date" datetime="2026-07-04">July 4, 2026</time>
+      </div>
+      <p class="project-description">
+        Click the field to choreograph civic bursts. Tune material intensity,
+        switch between heat, echo, and light, and watch the field record the ritual.
+      </p>
+    </header>
+
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card" aria-label="Interactive Civic Burst Field">
+          <canvas id="burstCanvas" width="1200" height="760"></canvas>
+          <div class="burst-panel" aria-label="Burst material controls">
+            <div class="control-row">
+              <button class="material-button" type="button" data-mode="heat">Heat</button>
+              <button class="material-button" type="button" data-mode="echo">Echo</button>
+              <button class="material-button" type="button" data-mode="light">Light</button>
+            </div>
+            <label class="intensity-control" for="intensityControl">
+              <span>Intensity</span>
+              <input id="intensityControl" type="range" min="1" max="3" value="2" step="1">
+            </label>
+            <dl class="burst-telemetry">
+              <div>
+                <dt>Bursts</dt>
+                <dd id="burstCount">0</dd>
+              </div>
+              <div>
+                <dt>Material</dt>
+                <dd id="burstStatus">Heat field ready</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./burst.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A typographic lenticular print controlled by viewing angle.">
+    <title>Lenticular Index — Experiments</title>
+    <link rel="stylesheet" href="../experiment.css">
+  </head>
+  <body>
+    <header class="project-title-bar">
+      <a class="back-link" href="../../">Back to Experiments</a>
+      <div class="project-title-row">
+        <h1>Lenticular Index</h1>
+        <time class="project-date" datetime="2026-07-21">Jul 21, 2026</time>
+      </div>
+      <p class="project-description">Move across a field of optical ribs to flip one typographic signal into its opposite.</p>
+    </header>
+    <main class="experiment-shell">
+      <div class="experiment-stage-wrap">
+        <section class="stage-card lenticular-stage" aria-label="Lenticular Index interactive optical poster">
+          <div class="lenticular-artifact" id="lenticularArtifact" tabindex="0" aria-describedby="lenticularInstructions">
+            <div class="lenticular-meta" aria-hidden="true">
+              <span>OPTICAL STUDY · 021</span>
+              <span>ANGLE / MESSAGE</span>
+            </div>
+            <div class="lenticular-ribs" id="lenticularRibs" aria-hidden="true"></div>
+            <div class="lenticular-center-mark" aria-hidden="true">0°</div>
+          </div>
+          <div class="lenticular-hud">
+            <div class="lenticular-readout">
+              <span>VIEW</span>
+              <strong id="lenticularReadout">SHIFT · 0°</strong>
+            </div>
+            <p id="lenticularInstructions">Move across the poster or use arrow keys. Space locks the angle.</p>
+            <div class="lenticular-actions">
+              <button class="material-button" id="lenticularLock" type="button" aria-pressed="false">Lock angle</button>
+              <button class="material-button" id="lenticularReset" type="button">Center</button>
+            </div>
+          </div>
+          <p class="visually-hidden" id="lenticularStatus" aria-live="polite">Viewing the transition at zero degrees.</p>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./lenticular-index.js"></script>
+  </body>
+</html>
