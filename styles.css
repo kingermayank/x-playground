@@ -583,18 +583,6 @@ h1 {
   font-size: 0.94rem;
 }
 
-.open-cue {
-  width: fit-content;
-  min-height: 30px;
-  padding: 5px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink);
-  font-family: var(--serif);
-  font-size: 0.78rem;
-  font-style: italic;
-}
-
 .site-footer {
   width: min(1160px, calc(100% - 32px));
   margin: 0 auto;

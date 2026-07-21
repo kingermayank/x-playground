@@ -101,11 +101,7 @@ function createCard(experiment) {
   summary.className = 'summary';
   summary.textContent = experiment.summary;
 
-  const cue = document.createElement('span');
-  cue.className = 'open-cue';
-  cue.textContent = 'Open dossier';
-
-  body.replaceChildren(titleRow, tags, summary, cue);
+  body.replaceChildren(titleRow, tags, summary);
   card.replaceChildren(frame, body);
 
   return card;
